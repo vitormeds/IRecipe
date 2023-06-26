@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Nuke
 
 class FeaturedRecipeCollectionViewCell: UICollectionViewCell {
     
@@ -60,6 +61,10 @@ class FeaturedRecipeCollectionViewCell: UICollectionViewCell {
     
     func setupCell(title: String, image: String) {
         titleLabel.text = title
+        if let urlImg: URL = URL(string: image) {
+            let request: ImageRequest? = ImageRequest(urlRequest: URLRequest(url: urlImg))
+            Nuke.loadImage(with: request!, into: recipeImageView)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
