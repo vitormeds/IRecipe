@@ -1,0 +1,18 @@
+/* 
+  Localizable.strings
+  IRecipe
+
+  Created by Vitor Mendes on 26/06/23.
+  
+*/
+
+// Home
+"Home.title" = "Receita";
+
+// Recipe Cell
+"Home.RecipeCell.calories" = "Calorias: ";
+"Home.RecipeCell.time" = "Tempo: ";
+
+
+// Animations
+"Animations.loading" = "loading";

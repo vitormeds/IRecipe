@@ -9,19 +9,31 @@ import Foundation
 
 // swiftlint:disable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
-internal enum L10n {
-  /// Localizable.strings
-  ///   IRecipe
-  /// 
-  ///   Created by Vitor Mendes on 26/06/23.
-  internal static let homeTitle = L10n.tr("Localizable", "homeTitle", fallback: "Receita")
+internal enum IRecipeStrings {
+  internal enum Animations {
+    /// loading
+    internal static let loading = IRecipeStrings.tr("Localizable", "Animations.loading", fallback: "loading")
+  }
+  internal enum Home {
+    /// Localizable.strings
+    ///   IRecipe
+    /// 
+    ///   Created by Vitor Mendes on 26/06/23.
+    internal static let title = IRecipeStrings.tr("Localizable", "Home.title", fallback: "Receita")
+    internal enum RecipeCell {
+      /// Calorias: 
+      internal static let calories = IRecipeStrings.tr("Localizable", "Home.RecipeCell.calories", fallback: "Calorias: ")
+      /// Tempo: 
+      internal static let time = IRecipeStrings.tr("Localizable", "Home.RecipeCell.time", fallback: "Tempo: ")
+    }
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
 
 // MARK: - Implementation Details
 
-extension L10n {
+extension IRecipeStrings {
   private static func tr(_ table: String, _ key: String, _ args: CVarArg..., fallback value: String) -> String {
     let format = BundleToken.bundle.localizedString(forKey: key, value: value, table: table)
     return String(format: format, locale: Locale.current, arguments: args)

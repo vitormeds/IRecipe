@@ -96,8 +96,8 @@ class RecipeTableViewCell: UITableViewCell {
             Nuke.loadImage(with: request!, into: recipeImageView)
         }
         nameLabel.text = recipe.label
-        caloriesLabel.text = "Calorias: " + String.localizedStringWithFormat("%.2f", recipe.calories)
-        timeToPrepareLabel.text = "Tempo: " + recipe.totalTime.description
+        caloriesLabel.text = IRecipeStrings.Home.RecipeCell.calories + String.localizedStringWithFormat("%.2f", recipe.calories)
+        timeToPrepareLabel.text = IRecipeStrings.Home.RecipeCell.time + recipe.totalTime.description
     }
 
     required public init?(coder aDecoder: NSCoder) {

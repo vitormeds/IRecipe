@@ -1,11 +1,17 @@
 strings:
-  inputs: IRecipe/Base.lproj
+  inputs: 
+    - IRecipe/Resources/Localizable.strings
   outputs:
     - templateName: structured-swift5
-      output: Strings.swift
+      output: IRecipe/Resources/Strings+Generated.swift
+      params:
+        enumName: IRecipeStrings
+
 xcassets:
   inputs:
     - IRecipe/Assets.xcassets
   outputs:
     - templateName: swift5
-      output: Assets.swift
+      output: Assets+Generated.swift
+      params:
+        enumName: IRecipeAssets

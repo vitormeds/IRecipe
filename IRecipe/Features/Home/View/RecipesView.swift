@@ -13,12 +13,12 @@ class RecipesView: UIView {
     let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.placeholder = "Receitas"
+        searchBar.placeholder = IRecipeStrings.Home.title
         return searchBar
     }()
     
     let loadingView: LottieAnimationView = {
-        let loadingView = LottieAnimationView(name: "loading")
+        let loadingView = LottieAnimationView(name: IRecipeStrings.Animations.loading)
         loadingView.translatesAutoresizingMaskIntoConstraints = false
         loadingView.loopMode = .loop
         loadingView.isHidden = true
