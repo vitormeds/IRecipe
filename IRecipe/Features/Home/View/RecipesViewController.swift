@@ -10,7 +10,7 @@ import UIKit
 class RecipesViewController: UIViewController {
 
     let viewModel: RecipesViewModelProtocol
-    var delegateToView: RecipesControllerToViewDelegate?
+    let delegateToView: RecipesControllerToViewDelegate
     
     let recipesView: RecipesView = {
         let recipesView = RecipesView()
@@ -18,31 +18,31 @@ class RecipesViewController: UIViewController {
         return recipesView
     }()
     
-    init(viewModel: RecipesViewModelProtocol) {
+    init(viewModel: RecipesViewModelProtocol, recipesDelegate: RecipesControllerToViewDelegate? = nil) {
         self.viewModel = viewModel
+        self.delegateToView = recipesDelegate ?? recipesView
         super.init(nibName: nil, bundle: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        delegateToView = recipesView
         setupViews()
         setupTableViewAndCollection()
         getRecipes()
     }
     
     func getRecipes() {
-        delegateToView?.setupLoading(play: true)
+        delegateToView.setupLoading(play: true)
         viewModel.getRecipes {
             self.recipesView.setupLoading(play: false)
             self.recipesView.recipesCollection.delegate = self
             self.recipesView.recipesCollection.dataSource = self
             self.recipesView.recipesTableView.delegate = self
             self.recipesView.recipesTableView.dataSource = self
-            self.delegateToView?.reloadView()
+            self.delegateToView.reloadView()
         } error: { error in
-            self.delegateToView?.setupLoading(play: false)
+            self.delegateToView.setupLoading(play: false)
             print(error.asAFError?.responseCode ?? 0)
         }
 
