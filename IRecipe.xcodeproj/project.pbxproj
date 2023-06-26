@@ -33,6 +33,7 @@
 		F4E1AB5A2A4A0590005676BB /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E1AB582A4A0590005676BB /* Assets.swift */; };
 		F4E1AB5B2A4A0590005676BB /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E1AB592A4A0590005676BB /* Strings.swift */; };
 		F4E1AB5D2A4A07BF005676BB /* RecipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E1AB5C2A4A07BF005676BB /* RecipeTableViewCell.swift */; };
+		F4E1AB612A4A16AE005676BB /* loading.json in Resources */ = {isa = PBXBuildFile; fileRef = F4E1AB602A4A16AE005676BB /* loading.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +90,7 @@
 		F4E1AB582A4A0590005676BB /* Assets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = SOURCE_ROOT; };
 		F4E1AB592A4A0590005676BB /* Strings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = SOURCE_ROOT; };
 		F4E1AB5C2A4A07BF005676BB /* RecipeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeTableViewCell.swift; sourceTree = "<group>"; };
+		F4E1AB602A4A16AE005676BB /* loading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +169,7 @@
 		F47732402A4792BF008BAF64 /* IRecipe */ = {
 			isa = PBXGroup;
 			children = (
+				F4E1AB5E2A4A169A005676BB /* Resources */,
 				F47732742A4798D8008BAF64 /* Aplication */,
 				F47732852A47A5E0008BAF64 /* Coordinator */,
 				F47732762A4798FD008BAF64 /* Features */,
@@ -305,6 +308,22 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
+		F4E1AB5E2A4A169A005676BB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F4E1AB5F2A4A16A0005676BB /* Animations */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F4E1AB5F2A4A16A0005676BB /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				F4E1AB602A4A16AE005676BB /* loading.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -416,6 +435,7 @@
 			files = (
 				F47732512A4792C0008BAF64 /* LaunchScreen.storyboard in Resources */,
 				F4E1AB572A4A0036005676BB /* Localizable.strings in Resources */,
+				F4E1AB612A4A16AE005676BB /* loading.json in Resources */,
 				F477324E2A4792C0008BAF64 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

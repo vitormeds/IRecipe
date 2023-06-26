@@ -31,8 +31,9 @@ class RecipesViewController: UIViewController {
     }
     
     func getRecipes() {
+        recipesView.setupLoading(play: true)
         viewModel.getRecipes {
-            print("Sucesso")
+            self.recipesView.setupLoading(play: false)
             self.recipesView.recipesCollection.delegate = self
             self.recipesView.recipesCollection.dataSource = self
             self.recipesView.recipesCollection.reloadData()
@@ -40,6 +41,7 @@ class RecipesViewController: UIViewController {
             self.recipesView.recipesTableView.dataSource = self
             self.recipesView.recipesTableView.reloadData()
         } error: { error in
+            self.recipesView.setupLoading(play: false)
             print(error.asAFError?.responseCode ?? 0)
         }
 

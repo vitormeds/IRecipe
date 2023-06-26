@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Lottie
 
 class RecipesView: UIView {
     
@@ -16,12 +17,20 @@ class RecipesView: UIView {
         return searchBar
     }()
     
+    let loadingView: LottieAnimationView = {
+        let loadingView = LottieAnimationView(name: "loading")
+        loadingView.translatesAutoresizingMaskIntoConstraints = false
+        loadingView.loopMode = .loop
+        loadingView.isHidden = true
+        loadingView.play()
+        return loadingView
+    }()
+    
     let recipesCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let recipesCollection = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         recipesCollection.translatesAutoresizingMaskIntoConstraints = false
-        recipesCollection.backgroundColor = UIColor.gray
         recipesCollection.showsVerticalScrollIndicator = false
         recipesCollection.showsHorizontalScrollIndicator = false
         return recipesCollection
@@ -30,7 +39,9 @@ class RecipesView: UIView {
     let recipesTableView: UITableView = {
         let recipesTableView = UITableView()
         recipesTableView.translatesAutoresizingMaskIntoConstraints = false
-        recipesTableView.backgroundColor = UIColor.lightGray
+        recipesTableView.showsVerticalScrollIndicator = false
+        recipesTableView.showsHorizontalScrollIndicator = false
+        recipesTableView.separatorStyle = .none
         return recipesTableView
     }()
     
@@ -52,6 +63,7 @@ class RecipesView: UIView {
         addSubview(searchBar)
         addSubview(recipesCollection)
         addSubview(recipesTableView)
+        addSubview(loadingView)
         
         NSLayoutConstraint.activate([
             searchBar.topAnchor.constraint(equalTo: topAnchor, constant: Spacing.normalSpacing),
@@ -74,6 +86,16 @@ class RecipesView: UIView {
             recipesTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Spacing.normalSpacing)
         ])
         
+        NSLayoutConstraint.activate([
+            loadingView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            loadingView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            loadingView.widthAnchor.constraint(equalToConstant: Size.loadingSize),
+            loadingView.heightAnchor.constraint(equalToConstant: Size.loadingSize)
+        ])
+    }
+    
+    func setupLoading(play: Bool) {
+        loadingView.isHidden = !play
     }
     
 }

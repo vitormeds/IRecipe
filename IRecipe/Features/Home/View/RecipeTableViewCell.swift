@@ -26,24 +26,29 @@ class RecipeTableViewCell: UITableViewCell {
     var recipeImageView: UIImageView = {
         let recipeImageView = UIImageView()
         recipeImageView.translatesAutoresizingMaskIntoConstraints = false
+        recipeImageView.layer.masksToBounds = true
+        recipeImageView.layer.cornerRadius = 15
         return recipeImageView
     }()
 
     var nameLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.font = UIFont.boldSystemFont(ofSize: 18)
         return nameLabel
     }()
     
     var caloriesLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.font = UIFont.systemFont(ofSize: 14)
         return nameLabel
     }()
     
     var timeToPrepareLabel: UILabel = {
         let nameLabel = UILabel()
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
+        nameLabel.font = UIFont.systemFont(ofSize: 14)
         return nameLabel
     }()
     
@@ -81,7 +86,7 @@ class RecipeTableViewCell: UITableViewCell {
             atributesStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: Spacing.normalSpacing),
             atributesStackView.leftAnchor.constraint(equalTo: recipeImageView.rightAnchor, constant: Spacing.normalSpacing),
             atributesStackView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -Spacing.normalSpacing),
-            atributesStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: Spacing.normalSpacing)
+            atributesStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Spacing.normalSpacing)
         ])
     }
     
@@ -91,8 +96,8 @@ class RecipeTableViewCell: UITableViewCell {
             Nuke.loadImage(with: request!, into: recipeImageView)
         }
         nameLabel.text = recipe.label
-        caloriesLabel.text = recipe.calories.description
-        timeToPrepareLabel.text = recipe.totalTime.description
+        caloriesLabel.text = "Calorias: " + String.localizedStringWithFormat("%.2f", recipe.calories)
+        timeToPrepareLabel.text = "Tempo: " + recipe.totalTime.description
     }
 
     required public init?(coder aDecoder: NSCoder) {

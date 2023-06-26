@@ -13,6 +13,8 @@ class FeaturedRecipeCollectionViewCell: UICollectionViewCell {
     let recipeImageView: UIImageView = {
         let recipeImageView = UIImageView()
         recipeImageView.translatesAutoresizingMaskIntoConstraints = false
+        recipeImageView.layer.masksToBounds = true
+        recipeImageView.layer.cornerRadius = 15
         return recipeImageView
     }()
     

@@ -11,5 +11,6 @@ enum Size {
     static let collectionSize: CGFloat = 180
     static let searchBarSize: CGFloat = 40
     static let titleSize: CGFloat = 60
-    static let recipeSize: CGFloat = 40
+    static let recipeSize: CGFloat = 90
+    static let loadingSize: CGFloat = 120
 }
