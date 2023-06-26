@@ -8,23 +8,25 @@
 import Foundation
 
 protocol RecipesViewModelProtocol {
-    func getRecipes()
+    func getRecipes(sucess: @escaping ()-> Void, error: @escaping (Error)-> Void)
+    var recipes: [Hit]? { get set }
 }
 
 class RecipeViewModel: RecipesViewModelProtocol {
     
     let recipesService: RecipeServiceProtocol
+    var recipes: [Hit]?
     
     init(recipesService: RecipeServiceProtocol) {
         self.recipesService = recipesService
     }
     
-    func getRecipes() {
+    func getRecipes(sucess: @escaping ()-> Void, error: @escaping (Error)-> Void) {
         recipesService.getRecipes { result in
-            print("Ok")
+            self.recipes = result.hits
+            sucess()
         } error: { e in
-            print("Falhou")
+            error(e)
         }
-
     }
 }
