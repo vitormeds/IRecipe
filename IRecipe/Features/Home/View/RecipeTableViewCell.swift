@@ -69,14 +69,14 @@ class RecipeTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             containerView.topAnchor.constraint(equalTo: topAnchor),
-            containerView.rightAnchor.constraint(equalTo: rightAnchor),
-            containerView.leftAnchor.constraint(equalTo: leftAnchor),
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             containerView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
         
         
         NSLayoutConstraint.activate([
-            recipeImageView.leftAnchor.constraint(equalTo: leftAnchor, constant: Spacing.normalSpacing),
+            recipeImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
             recipeImageView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
             recipeImageView.widthAnchor.constraint(equalToConstant: Size.recipeSize),
             recipeImageView.heightAnchor.constraint(equalToConstant: Size.recipeSize)
@@ -84,8 +84,8 @@ class RecipeTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             atributesStackView.topAnchor.constraint(equalTo: containerView.topAnchor, constant: Spacing.normalSpacing),
-            atributesStackView.leftAnchor.constraint(equalTo: recipeImageView.rightAnchor, constant: Spacing.normalSpacing),
-            atributesStackView.rightAnchor.constraint(equalTo: containerView.rightAnchor, constant: -Spacing.normalSpacing),
+            atributesStackView.leadingAnchor.constraint(equalTo: recipeImageView.trailingAnchor, constant: Spacing.normalSpacing),
+            atributesStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             atributesStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -Spacing.normalSpacing)
         ])
     }

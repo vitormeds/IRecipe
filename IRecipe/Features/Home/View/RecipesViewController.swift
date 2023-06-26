@@ -10,6 +10,7 @@ import UIKit
 class RecipesViewController: UIViewController {
 
     let viewModel: RecipesViewModelProtocol
+    var delegateToView: RecipesControllerToViewDelegate?
     
     let recipesView: RecipesView = {
         let recipesView = RecipesView()
@@ -25,23 +26,23 @@ class RecipesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        delegateToView = recipesView
         setupViews()
         setupTableViewAndCollection()
         getRecipes()
     }
     
     func getRecipes() {
-        recipesView.setupLoading(play: true)
+        delegateToView?.setupLoading(play: true)
         viewModel.getRecipes {
             self.recipesView.setupLoading(play: false)
             self.recipesView.recipesCollection.delegate = self
             self.recipesView.recipesCollection.dataSource = self
-            self.recipesView.recipesCollection.reloadData()
             self.recipesView.recipesTableView.delegate = self
             self.recipesView.recipesTableView.dataSource = self
-            self.recipesView.recipesTableView.reloadData()
+            self.delegateToView?.reloadView()
         } error: { error in
-            self.recipesView.setupLoading(play: false)
+            self.delegateToView?.setupLoading(play: false)
             print(error.asAFError?.responseCode ?? 0)
         }
 
@@ -114,5 +115,9 @@ extension RecipesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

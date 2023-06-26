@@ -8,16 +8,21 @@
 import UIKit
 import Lottie
 
+protocol RecipesControllerToViewDelegate {
+    func setupLoading(play: Bool)
+    func reloadView()
+}
+
 class RecipesView: UIView {
     
-    let searchBar: UISearchBar = {
+    private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
         searchBar.placeholder = IRecipeStrings.Home.title
         return searchBar
     }()
     
-    let loadingView: LottieAnimationView = {
+    private let loadingView: LottieAnimationView = {
         let loadingView = LottieAnimationView(name: IRecipeStrings.Animations.loading)
         loadingView.translatesAutoresizingMaskIntoConstraints = false
         loadingView.loopMode = .loop
@@ -93,9 +98,16 @@ class RecipesView: UIView {
             loadingView.heightAnchor.constraint(equalToConstant: Size.loadingSize)
         ])
     }
+}
+
+extension RecipesView: RecipesControllerToViewDelegate {
     
     func setupLoading(play: Bool) {
         loadingView.isHidden = !play
     }
     
+    func reloadView() {
+        recipesTableView.reloadData()
+        recipesCollection.reloadData()
+    }
 }
