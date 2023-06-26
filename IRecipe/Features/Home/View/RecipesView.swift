@@ -12,7 +12,7 @@ class RecipesView: UIView {
     let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.translatesAutoresizingMaskIntoConstraints = false
-        searchBar.placeholder = "Receita"
+        searchBar.placeholder = "Receitas"
         return searchBar
     }()
     

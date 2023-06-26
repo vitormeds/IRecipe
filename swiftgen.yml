@@ -1,0 +1,11 @@
+strings:
+  inputs: IRecipe/Base.lproj
+  outputs:
+    - templateName: structured-swift5
+      output: Strings.swift
+xcassets:
+  inputs:
+    - IRecipe/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: Assets.swift

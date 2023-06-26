@@ -6,7 +6,7 @@ target 'IRecipe' do
   use_frameworks!
   pod 'Alamofire', '5.7.1'
   pod 'Nuke', '10.7.1'
-
+  
   # Pods for IRecipe
 
   target 'IRecipeTests' do

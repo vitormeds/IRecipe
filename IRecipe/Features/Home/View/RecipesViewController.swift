@@ -26,7 +26,7 @@ class RecipesViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         setupViews()
-        setupCollection()
+        setupTableViewAndCollection()
         getRecipes()
     }
     
@@ -36,6 +36,9 @@ class RecipesViewController: UIViewController {
             self.recipesView.recipesCollection.delegate = self
             self.recipesView.recipesCollection.dataSource = self
             self.recipesView.recipesCollection.reloadData()
+            self.recipesView.recipesTableView.delegate = self
+            self.recipesView.recipesTableView.dataSource = self
+            self.recipesView.recipesTableView.reloadData()
         } error: { error in
             print(error.asAFError?.responseCode ?? 0)
         }
@@ -53,9 +56,9 @@ class RecipesViewController: UIViewController {
         ])
     }
     
-    func setupCollection() {
+    func setupTableViewAndCollection() {
         recipesView.recipesCollection.register(FeaturedRecipeCollectionViewCell.self,forCellWithReuseIdentifier: FeaturedRecipeCollectionViewCell.description())
-        recipesView.recipesCollection.reloadData()
+        recipesView.recipesTableView.register(RecipeTableViewCell.self, forCellReuseIdentifier: RecipeTableViewCell.description())
     }
     
     required init?(coder: NSCoder) {
@@ -85,5 +88,29 @@ extension RecipesViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (view.window?.bounds.width ?? 0) - Spacing.bigSpacing, height: Size.collectionSize)
+    }
+}
+
+extension RecipesViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: RecipeTableViewCell.description()) as! RecipeTableViewCell
+        guard let recipe = viewModel.recipes?[indexPath.row].recipe else {
+            return UITableViewCell()
+        }
+        cell.setup(recipe: recipe)
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
 }
