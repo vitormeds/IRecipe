@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol RecipeServiceProtocol {
+protocol RecipeServiceDelegate {
     func getRecipes(sucess: @escaping (RecipesModel)-> Void, error: @escaping (Error)-> Void)
 }
 
-class RecipeService: RecipeServiceProtocol {
+class RecipeService: RecipeServiceDelegate {
     
     func getRecipes(sucess: @escaping (RecipesModel)-> Void, error: @escaping (Error)-> Void) {
         NetworkService.request(url: "https://api.edamam.com/api/recipes/v2/", method: .get, obj: RecipesModel.self) { result in

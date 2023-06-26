@@ -7,17 +7,17 @@
 
 import Foundation
 
-protocol RecipesViewModelProtocol {
+protocol RecipesViewModelDelegate {
     func getRecipes(sucess: @escaping ()-> Void, error: @escaping (Error)-> Void)
     var recipes: [Hit]? { get set }
 }
 
-class RecipeViewModel: RecipesViewModelProtocol {
+class RecipeViewModel: RecipesViewModelDelegate {
     
-    let recipesService: RecipeServiceProtocol
+    let recipesService: RecipeServiceDelegate
     var recipes: [Hit]?
     
-    init(recipesService: RecipeServiceProtocol) {
+    init(recipesService: RecipeServiceDelegate) {
         self.recipesService = recipesService
     }
     

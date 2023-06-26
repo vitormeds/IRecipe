@@ -9,7 +9,7 @@ import UIKit
 
 class RecipesViewController: UIViewController {
 
-    let viewModel: RecipesViewModelProtocol
+    let viewModel: RecipesViewModelDelegate
     let delegateToView: RecipesControllerToViewDelegate
     
     let recipesView: RecipesView = {
@@ -18,7 +18,7 @@ class RecipesViewController: UIViewController {
         return recipesView
     }()
     
-    init(viewModel: RecipesViewModelProtocol, recipesDelegate: RecipesControllerToViewDelegate? = nil) {
+    init(viewModel: RecipesViewModelDelegate, recipesDelegate: RecipesControllerToViewDelegate? = nil) {
         self.viewModel = viewModel
         self.delegateToView = recipesDelegate ?? recipesView
         super.init(nibName: nil, bundle: nil)
@@ -35,7 +35,7 @@ class RecipesViewController: UIViewController {
     func getRecipes() {
         delegateToView.setupLoading(play: true)
         viewModel.getRecipes {
-            self.recipesView.setupLoading(play: false)
+            self.delegateToView.setupLoading(play: false)
             self.recipesView.recipesCollection.delegate = self
             self.recipesView.recipesCollection.dataSource = self
             self.recipesView.recipesTableView.delegate = self
