@@ -19,6 +19,7 @@ class FeaturedRecipeCollectionViewCell: UICollectionViewCell {
     let titleBackgroundView: UIView = {
         let titleBackgroundView = UIView()
         titleBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        titleBackgroundView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
         return titleBackgroundView
     }()
     
@@ -47,10 +48,10 @@ class FeaturedRecipeCollectionViewCell: UICollectionViewCell {
         ])
         
         NSLayoutConstraint.activate([
-            titleBackgroundView.bottomAnchor.constraint(equalTo: recipeImageView.bottomAnchor, constant: 4),
+            titleBackgroundView.bottomAnchor.constraint(equalTo: recipeImageView.bottomAnchor, constant: Spacing.smallerSpacing),
             titleBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            titleBackgroundView.heightAnchor.constraint(equalToConstant: CGFloat(60))
+            titleBackgroundView.heightAnchor.constraint(equalToConstant: Size.titleSize)
         ])
         
         NSLayoutConstraint.activate([

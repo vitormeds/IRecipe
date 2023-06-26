@@ -84,6 +84,6 @@ extension RecipesViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (view.window?.bounds.width ?? 0) - 32, height: 180)
+        return CGSize(width: (view.window?.bounds.width ?? 0) - Spacing.bigSpacing, height: Size.collectionSize)
     }
 }

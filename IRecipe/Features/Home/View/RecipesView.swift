@@ -54,24 +54,24 @@ class RecipesView: UIView {
         addSubview(recipesTableView)
         
         NSLayoutConstraint.activate([
-            searchBar.topAnchor.constraint(equalTo: topAnchor, constant: 16),
-            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            searchBar.heightAnchor.constraint(equalToConstant: CGFloat(40))
+            searchBar.topAnchor.constraint(equalTo: topAnchor, constant: Spacing.normalSpacing),
+            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Spacing.normalSpacing),
+            searchBar.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Spacing.normalSpacing),
+            searchBar.heightAnchor.constraint(equalToConstant: Size.searchBarSize)
         ])
         
         NSLayoutConstraint.activate([
-            recipesCollection.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: 16),
-            recipesCollection.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            recipesCollection.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            recipesCollection.heightAnchor.constraint(equalToConstant: CGFloat(180))
+            recipesCollection.topAnchor.constraint(equalTo: searchBar.bottomAnchor, constant: Spacing.normalSpacing),
+            recipesCollection.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Spacing.normalSpacing),
+            recipesCollection.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Spacing.normalSpacing),
+            recipesCollection.heightAnchor.constraint(equalToConstant: Size.collectionSize)
         ])
         
         NSLayoutConstraint.activate([
-            recipesTableView.topAnchor.constraint(equalTo: recipesCollection.bottomAnchor, constant: 16),
-            recipesTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            recipesTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            recipesTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 16)
+            recipesTableView.topAnchor.constraint(equalTo: recipesCollection.bottomAnchor, constant: Spacing.normalSpacing),
+            recipesTableView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Spacing.normalSpacing),
+            recipesTableView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -Spacing.normalSpacing),
+            recipesTableView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: Spacing.normalSpacing)
         ])
         
     }
