@@ -16,7 +16,6 @@
 		F477324C2A4792BF008BAF64 /* IRecipe.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F477324A2A4792BF008BAF64 /* IRecipe.xcdatamodeld */; };
 		F477324E2A4792C0008BAF64 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F477324D2A4792C0008BAF64 /* Assets.xcassets */; };
 		F47732512A4792C0008BAF64 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F477324F2A4792C0008BAF64 /* LaunchScreen.storyboard */; };
-		F477325C2A4792C0008BAF64 /* IRecipeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477325B2A4792C0008BAF64 /* IRecipeTests.swift */; };
 		F47732662A4792C0008BAF64 /* IRecipeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47732652A4792C0008BAF64 /* IRecipeUITests.swift */; };
 		F47732682A4792C0008BAF64 /* IRecipeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47732672A4792C0008BAF64 /* IRecipeUITestsLaunchTests.swift */; };
 		F477327C2A4799E9008BAF64 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F477327B2A4799E9008BAF64 /* NetworkService.swift */; };
@@ -25,6 +24,9 @@
 		F47732842A479EC0008BAF64 /* RecipesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47732832A479EC0008BAF64 /* RecipesViewModel.swift */; };
 		F47732872A47A5FD008BAF64 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47732862A47A5FD008BAF64 /* Coordinator.swift */; };
 		F477328A2A47A625008BAF64 /* RecipesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F47732892A47A625008BAF64 /* RecipesCoordinator.swift */; };
+		F4A082142A4B3709001BBD5D /* RecipesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A082132A4B3709001BBD5D /* RecipesTests.swift */; };
+		F4A082162A4B37B3001BBD5D /* RecipesViewModelSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A082152A4B37B3001BBD5D /* RecipesViewModelSpy.swift */; };
+		F4A082182A4B3B29001BBD5D /* RecipeServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4A082172A4B3B29001BBD5D /* RecipeServiceMock.swift */; };
 		F4E1AB4D2A49E36C005676BB /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E1AB4C2A49E36C005676BB /* RecipesView.swift */; };
 		F4E1AB4F2A49E8FD005676BB /* FeaturedRecipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E1AB4E2A49E8FD005676BB /* FeaturedRecipeCollectionViewCell.swift */; };
 		F4E1AB522A49F893005676BB /* Spacing.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4E1AB512A49F893005676BB /* Spacing.swift */; };
@@ -71,7 +73,6 @@
 		F47732502A4792C0008BAF64 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F47732522A4792C0008BAF64 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F47732572A4792C0008BAF64 /* IRecipeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IRecipeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		F477325B2A4792C0008BAF64 /* IRecipeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRecipeTests.swift; sourceTree = "<group>"; };
 		F47732612A4792C0008BAF64 /* IRecipeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IRecipeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F47732652A4792C0008BAF64 /* IRecipeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRecipeUITests.swift; sourceTree = "<group>"; };
 		F47732672A4792C0008BAF64 /* IRecipeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IRecipeUITestsLaunchTests.swift; sourceTree = "<group>"; };
@@ -81,6 +82,9 @@
 		F47732832A479EC0008BAF64 /* RecipesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModel.swift; sourceTree = "<group>"; };
 		F47732862A47A5FD008BAF64 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F47732892A47A625008BAF64 /* RecipesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesCoordinator.swift; sourceTree = "<group>"; };
+		F4A082132A4B3709001BBD5D /* RecipesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesTests.swift; sourceTree = "<group>"; };
+		F4A082152A4B37B3001BBD5D /* RecipesViewModelSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesViewModelSpy.swift; sourceTree = "<group>"; };
+		F4A082172A4B3B29001BBD5D /* RecipeServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeServiceMock.swift; sourceTree = "<group>"; };
 		F4E1AB4C2A49E36C005676BB /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		F4E1AB4E2A49E8FD005676BB /* FeaturedRecipeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedRecipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		F4E1AB512A49F893005676BB /* Spacing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spacing.swift; sourceTree = "<group>"; };
@@ -183,7 +187,7 @@
 		F477325A2A4792C0008BAF64 /* IRecipeTests */ = {
 			isa = PBXGroup;
 			children = (
-				F477325B2A4792C0008BAF64 /* IRecipeTests.swift */,
+				F4A082122A4B36D3001BBD5D /* Features */,
 			);
 			path = IRecipeTests;
 			sourceTree = "<group>";
@@ -292,6 +296,24 @@
 				F47732892A47A625008BAF64 /* RecipesCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F4A082122A4B36D3001BBD5D /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				F4B89DE92A4B4A49006D6D51 /* Home */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		F4B89DE92A4B4A49006D6D51 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F4A082132A4B3709001BBD5D /* RecipesTests.swift */,
+				F4A082152A4B37B3001BBD5D /* RecipesViewModelSpy.swift */,
+				F4A082172A4B3B29001BBD5D /* RecipeServiceMock.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		F4E1AB502A49F88A005676BB /* Utils */ = {
@@ -584,7 +606,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F477325C2A4792C0008BAF64 /* IRecipeTests.swift in Sources */,
+				F4A082182A4B3B29001BBD5D /* RecipeServiceMock.swift in Sources */,
+				F4A082162A4B37B3001BBD5D /* RecipesViewModelSpy.swift in Sources */,
+				F4A082142A4B3709001BBD5D /* RecipesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

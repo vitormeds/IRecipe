@@ -8,25 +8,31 @@
 import Foundation
 
 protocol RecipesViewModelDelegate {
-    func getRecipes(sucess: @escaping ()-> Void, error: @escaping (Error)-> Void)
+    func getRecipes()
     var recipes: [Hit]? { get set }
+}
+
+protocol RecipesViewModelToViewDelegate {
+    func loadSucess()
+    func loadError(error: Error)
 }
 
 class RecipeViewModel: RecipesViewModelDelegate {
     
     let recipesService: RecipeServiceDelegate
+    var recipesViewDelegate: RecipesViewModelToViewDelegate?
     var recipes: [Hit]?
     
     init(recipesService: RecipeServiceDelegate) {
         self.recipesService = recipesService
     }
     
-    func getRecipes(sucess: @escaping ()-> Void, error: @escaping (Error)-> Void) {
+    func getRecipes() {
         recipesService.getRecipes { result in
             self.recipes = result.hits
-            sucess()
+            self.recipesViewDelegate?.loadSucess()
         } error: { e in
-            error(e)
+            self.recipesViewDelegate?.loadError(error: e)
         }
     }
 }

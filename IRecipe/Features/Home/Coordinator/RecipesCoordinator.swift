@@ -18,6 +18,7 @@ class RecipesCoordinator: Coordinator {
     func start() {
         let viewModel = RecipeViewModel(recipesService: RecipeService())
         let vc = RecipesViewController(viewModel: viewModel)
+        viewModel.recipesViewDelegate = vc
         navigationController.pushViewController(vc, animated: false)
     }
 }

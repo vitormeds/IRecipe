@@ -7,7 +7,6 @@ target 'IRecipe' do
   pod 'Alamofire', '5.7.1'
   pod 'Nuke', '10.7.1'
   pod 'lottie-ios'
-
   # Pods for IRecipe
 
   target 'IRecipeTests' do
@@ -17,6 +16,7 @@ target 'IRecipe' do
 
   target 'IRecipeUITests' do
     # Pods for testing
+    pod 'SnapshotTesting', '~> 1.8.1'
   end
 
 end

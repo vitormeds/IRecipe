@@ -34,18 +34,7 @@ class RecipesViewController: UIViewController {
     
     func getRecipes() {
         delegateToView.setupLoading(play: true)
-        viewModel.getRecipes {
-            self.delegateToView.setupLoading(play: false)
-            self.recipesView.recipesCollection.delegate = self
-            self.recipesView.recipesCollection.dataSource = self
-            self.recipesView.recipesTableView.delegate = self
-            self.recipesView.recipesTableView.dataSource = self
-            self.delegateToView.reloadView()
-        } error: { error in
-            self.delegateToView.setupLoading(play: false)
-            print(error.asAFError?.responseCode ?? 0)
-        }
-
+        viewModel.getRecipes()
     }
     
     func setupViews() {
@@ -68,6 +57,23 @@ class RecipesViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+extension RecipesViewController: RecipesViewModelToViewDelegate {
+    
+    func loadSucess() {
+        self.delegateToView.setupLoading(play: false)
+        self.recipesView.recipesCollection.delegate = self
+        self.recipesView.recipesCollection.dataSource = self
+        self.recipesView.recipesTableView.delegate = self
+        self.recipesView.recipesTableView.dataSource = self
+        self.delegateToView.reloadView()
+    }
+    
+    func loadError(error: Error) {
+        self.delegateToView.setupLoading(play: false)
+        print(error.asAFError?.responseCode ?? 0)
+    }
 }
 
 extension RecipesViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
