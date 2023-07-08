@@ -13,9 +13,10 @@ final class RecipeTests: XCTestCase {
     var viewModel: RecipeViewModel!
     var service = RecipeServiceMock()
     var controllerSpy = RecipesViewControllerSpy()
+    var coordinatorSpy = MainCoordinatorSpy()
     
     override func setUp() {
-        viewModel = RecipeViewModel(recipesService: service)
+        viewModel = RecipeViewModel(recipesService: service, coordinatorDelegate: coordinatorSpy)
         viewModel.recipesViewDelegate = controllerSpy
     }
     
