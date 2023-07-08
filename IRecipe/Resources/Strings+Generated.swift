@@ -27,6 +27,10 @@ internal enum IRecipeStrings {
       internal static let time = IRecipeStrings.tr("Localizable", "Home.RecipeCell.time", fallback: "Tempo: ")
     }
   }
+  internal enum Utils {
+    /// Voltar
+    internal static let back = IRecipeStrings.tr("Localizable", "Utils.back", fallback: "Voltar")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces

@@ -23,9 +23,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         let navController = UINavigationController()
-        let backButton = UIBarButtonItem()
-        backButton.title = "Voltar"
-        navController.navigationBar.topItem?.backBarButtonItem = backButton
         coodinator = MainCoordinator(navigationController: navController)
         coodinator?.start()
         

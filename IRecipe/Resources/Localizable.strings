@@ -16,3 +16,6 @@
 
 // Animations
 "Animations.loading" = "loading";
+
+// Utils
+"Utils.back" = "Voltar";

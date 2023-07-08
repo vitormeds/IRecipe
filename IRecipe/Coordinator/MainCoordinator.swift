@@ -30,6 +30,9 @@ class MainCoordinator: Coordinator {
 extension MainCoordinator: MainCoordinatorDelegate {
     
     func openRecipe(recipe: Recipe) {
+        let backButton = UIBarButtonItem()
+        backButton.title = IRecipeStrings.Utils.back
+        navigationController.navigationBar.topItem?.backBarButtonItem = backButton
         let viewModel = RecipeDetailViewModel(recipe: recipe)
         let vc = RecipeDetailViewController(viewModel: viewModel)
         navigationController.pushViewController(vc, animated: true)
