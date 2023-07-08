@@ -11,12 +11,12 @@ target 'IRecipe' do
 
   target 'IRecipeTests' do
     inherit! :search_paths
+    pod 'iOSSnapshotTestCase', '8.0.0'
     # Pods for testing
   end
 
   target 'IRecipeUITests' do
     # Pods for testing
-    pod 'SnapshotTesting', '~> 1.8.1'
   end
 
 end

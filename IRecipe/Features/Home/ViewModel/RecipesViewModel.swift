@@ -10,6 +10,7 @@ import Foundation
 protocol RecipesViewModelDelegate {
     func getRecipes()
     var recipes: [Hit]? { get set }
+    func openRecipe(recipe: Recipe)
 }
 
 protocol RecipesViewModelToViewDelegate {
@@ -18,13 +19,15 @@ protocol RecipesViewModelToViewDelegate {
 }
 
 class RecipeViewModel: RecipesViewModelDelegate {
-    
+
     let recipesService: RecipeServiceDelegate
     var recipesViewDelegate: RecipesViewModelToViewDelegate?
+    var coordinatorDelegate: RecipesCoordinatorDelegate?
     var recipes: [Hit]?
     
-    init(recipesService: RecipeServiceDelegate) {
+    init(recipesService: RecipeServiceDelegate, coordinatorDelegate: RecipesCoordinatorDelegate) {
         self.recipesService = recipesService
+        self.coordinatorDelegate = coordinatorDelegate
     }
     
     func getRecipes() {
@@ -34,5 +37,9 @@ class RecipeViewModel: RecipesViewModelDelegate {
         } error: { e in
             self.recipesViewDelegate?.loadError(error: e)
         }
+    }
+    
+    func openRecipe(recipe: Recipe) {
+        coordinatorDelegate?.openRecipe(recipe: recipe)
     }
 }
