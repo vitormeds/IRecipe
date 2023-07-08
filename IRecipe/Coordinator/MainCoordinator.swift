@@ -1,5 +1,5 @@
 //
-//  RecipesCoordinator.swift
+//  MainCoordinator.swift
 //  IRecipe
 //
 //  Created by Vitor Mendes on 24/06/23.
@@ -7,11 +7,11 @@
 
 import UIKit
 
-protocol RecipesCoordinatorDelegate {
+protocol MainCoordinatorDelegate {
     func openRecipe(recipe: Recipe)
 }
 
-class RecipesCoordinator: Coordinator {
+class MainCoordinator: Coordinator {
     
     var navigationController: UINavigationController
 
@@ -27,10 +27,11 @@ class RecipesCoordinator: Coordinator {
     }
 }
 
-extension RecipesCoordinator: RecipesCoordinatorDelegate {
+extension MainCoordinator: MainCoordinatorDelegate {
     
     func openRecipe(recipe: Recipe) {
-        let recipeDetailCoordinator = RecipeDetailCoordinator(navigationController: navigationController, recipe: recipe)
-        recipeDetailCoordinator.start()
+        let viewModel = RecipeDetailViewModel(recipe: recipe)
+        let vc = RecipeDetailViewController(viewModel: viewModel)
+        navigationController.pushViewController(vc, animated: true)
     }
 }

@@ -98,6 +98,13 @@ extension RecipesViewController: UICollectionViewDataSource, UICollectionViewDel
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: (view.window?.bounds.width ?? 0) - Spacing.bigSpacing, height: Size.collectionSize)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let recipe = viewModel.recipes?[indexPath.item].recipe else {
+            return
+        }
+        viewModel.openRecipe(recipe: recipe)
+    }
 }
 
 extension RecipesViewController: UITableViewDelegate, UITableViewDataSource {

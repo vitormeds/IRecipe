@@ -11,7 +11,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-    var coodinator: RecipesCoordinator?
+    var coodinator: MainCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -23,7 +23,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         
         let navController = UINavigationController()
-        coodinator = RecipesCoordinator(navigationController: navController)
+        let backButton = UIBarButtonItem()
+        backButton.title = "Voltar"
+        navController.navigationBar.topItem?.backBarButtonItem = backButton
+        coodinator = MainCoordinator(navigationController: navController)
         coodinator?.start()
         
         window.rootViewController = navController

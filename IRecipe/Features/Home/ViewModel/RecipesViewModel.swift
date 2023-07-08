@@ -22,10 +22,10 @@ class RecipeViewModel: RecipesViewModelDelegate {
 
     let recipesService: RecipeServiceDelegate
     var recipesViewDelegate: RecipesViewModelToViewDelegate?
-    var coordinatorDelegate: RecipesCoordinatorDelegate?
+    var coordinatorDelegate: MainCoordinatorDelegate?
     var recipes: [Hit]?
     
-    init(recipesService: RecipeServiceDelegate, coordinatorDelegate: RecipesCoordinatorDelegate) {
+    init(recipesService: RecipeServiceDelegate, coordinatorDelegate: MainCoordinatorDelegate) {
         self.recipesService = recipesService
         self.coordinatorDelegate = coordinatorDelegate
     }
